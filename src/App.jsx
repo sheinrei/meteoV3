@@ -1,0 +1,26 @@
+import SearchVille from './components/SearchVille.jsx'
+import MainFrameVille  from './components/MainFrameVille.jsx'
+import useLocalStorage from './customHook/localStorage.jsx';
+
+function App() {
+
+  const [listVille, setListVille] = useLocalStorage("ville", ["toulouse"]);
+
+  const addVille = (newVille) => setListVille(prev => [newVille, ...prev]);
+  const deleteVille = (villeDeleted) => setListVille(prev => prev.filter(v => v !== villeDeleted));
+  
+
+
+  return <div className='border flex flex-col items-center p-10 w-max gap-9 bg-stone-200'>
+
+
+    
+    <SearchVille onAddVille={addVille} />
+    <MainFrameVille villes={listVille} onRemoveVille={deleteVille}/> 
+  </div>
+
+}
+
+
+
+export default App
