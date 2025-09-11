@@ -9,15 +9,15 @@ export function VilleCurrentData({ ville, onRemoveVille, meteoData, loading }) {
 
     const styleDetailData = ""
 
-/* 
-        if (loading || !meteoData[ville]) {
-            return <div key={ville} className="flex gap-2">
-                <p>Chargement de la ville...</p>
-                <span className="loading loading-ring loading-xl"></span>
-            </div>
-        }
-
- */
+    /* 
+            if (loading || !meteoData[ville]) {
+                return <div key={ville} className="flex gap-2">
+                    <p>Chargement de la ville...</p>
+                    <span className="loading loading-ring loading-xl"></span>
+                </div>
+            }
+    
+     */
 
 
     const villeData = parseData(meteoData);
@@ -33,7 +33,6 @@ export function VilleCurrentData({ ville, onRemoveVille, meteoData, loading }) {
     return <div key={villeData.nameVille}
         className="flex flex-col py-10 px-10 gap-7 border w-full items-center rounded-xl relative bg-white">
 
-        <ButtonDeleteVille onClick={() => onRemoveVille(ville)} />
 
         <p className="">{villeData.nameVille}</p>
 
@@ -51,13 +50,15 @@ export function VilleCurrentData({ ville, onRemoveVille, meteoData, loading }) {
                 <p className={styleDetailData}>Précipitation : {villeData.current.currentPrecipitation}mm</p>
                 <p className={styleDetailData}>Levé soleil : {villeData.daily.sunrise}</p>
                 <p className={styleDetailData}>Couché du soleil : {villeData.daily.sunset}</p>
+            </div>
+        </div>
 
+            <div className="flex flex gap-2">
+                <ButtonDeleteVille onClick={() => onRemoveVille(ville)} />
                 <ButtonChangeToDetailDay ville={ville} />
                 <ButtonChangeToWeek ville={ville} />
-
             </div>
 
-        </div>
     </div>
 
 

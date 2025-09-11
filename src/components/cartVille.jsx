@@ -14,8 +14,12 @@ L.Icon.Default.mergeOptions({
 });
 
 export default function OSMMap({ lat = 43.6045, lng = 1.444 }) {
+  const currentWidth = document.body.clientWidth
+
+  let width;
+  currentWidth < 768 ? width = "w-80" : width = "w-120"
   return (
-    <MapContainer center={[lat, lng]} zoom={7} className="w-120 h-full z-0">
+    <MapContainer center={[lat, lng]} zoom={7} className={`${width} h-full z-0`}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
