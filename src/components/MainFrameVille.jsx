@@ -11,22 +11,14 @@ export default function MainFrameVille({ villes, onRemoveVille }) {
     const { villes: villesStore, addVille } = useSetFrameVille();
     const { meteoData, loading } = useMeteo(villes, onRemoveVille);
 
+
+    //set l'affichage de la fenetre initial
     useEffect(() => {
         villes.forEach((v) => {
-
             if (!villesStore[v]) {
                 addVille(v, "current");
             }
         });
-
-        
-
-        if (!loading && meteoData) {
-            window.localStorage.setItem("data", JSON.stringify(meteoData));
-        }
-
-
-
     }, [villes, meteoData]);
 
 
@@ -39,9 +31,10 @@ export default function MainFrameVille({ villes, onRemoveVille }) {
 
         const frame = villesStore[v]?.frame || "current";
 
-
-
-        if (loading || !meteoData[v]) {
+        const dataBrut = localStorage.getItem(`Data-${v}`)
+        const data = JSON.parse(dataBrut)
+        
+        if (loading || !data) {
             return <div key={v} className="flex gap-2">
                 <p>Chargement de la ville...</p>
                 <span className="loading loading-ring loading-xl"></span>
@@ -55,7 +48,7 @@ export default function MainFrameVille({ villes, onRemoveVille }) {
                 key={v}
                 ville={v}
                 onRemoveVille={onRemoveVille}
-                meteoData={meteoData}
+                meteoData={data}
                 loading={loading}
             />
 
@@ -64,7 +57,7 @@ export default function MainFrameVille({ villes, onRemoveVille }) {
                 key={v}
                 ville={v}
                 onRemoveVille={onRemoveVille}
-                meteoData={meteoData}
+                meteoData={data}
                 loading={loading}
             />
 
@@ -73,7 +66,7 @@ export default function MainFrameVille({ villes, onRemoveVille }) {
                 key={v}
                 ville={v}
                 onRemoveVille={onRemoveVille}
-                meteoData={meteoData}
+                meteoData={data}
                 loading={loading} />
 
 

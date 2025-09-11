@@ -20,7 +20,7 @@ export function VilleCurrentData({ ville, onRemoveVille, meteoData, loading }) {
  */
 
 
-    const villeData = parseData(meteoData[ville]);
+    const villeData = parseData(meteoData);
     //On attends d'avoir la data avant d'afficher
     if (!villeData) {
         return <p key={e} className="flex">

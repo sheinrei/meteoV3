@@ -7,7 +7,10 @@ function App() {
   const [listVille, setListVille] = useLocalStorage("ville", ["toulouse"]);
 
   const addVille = (newVille) => setListVille(prev => [newVille, ...prev]);
-  const deleteVille = (villeDeleted) => setListVille(prev => prev.filter(v => v !== villeDeleted));
+  const deleteVille = (villeDeleted) =>{
+    setListVille(prev => prev.filter(v => v !== villeDeleted));
+    localStorage.removeItem(`Data-${villeDeleted}`)
+  } 
   
 
 

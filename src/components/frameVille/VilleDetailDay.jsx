@@ -27,7 +27,7 @@ export function VilleDetailDay({ ville, onRemoveVille, meteoData, loading }) {
 
 
     //traitement des données dans meteoData
-    const villeData = parseData(meteoData[ville])
+    const villeData = parseData(meteoData)
 
     const blocsHours = chunkArray(villeData.daily.arrayTempDaily, 4);
 

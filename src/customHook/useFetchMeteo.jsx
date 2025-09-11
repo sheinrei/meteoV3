@@ -29,6 +29,20 @@ export function useMeteo(villes, onVilleInvalide) {
 
         for (const v of villes) {
 
+          //recherche d'abords si present dans localStorage en cas on skip
+          const dataBrut = localStorage.getItem(`Data-${v}`)
+          const dataStorage = JSON.parse(dataBrut)
+
+          const date = new Date();
+          const currentTime = date.getTime();
+
+          if (dataStorage) {
+            const diffMaj = currentTime - dataStorage.lastUpdate;
+            const twoHours = 1000 * 60 * 60 * 2;
+            if (diffMaj < twoHours) {
+              continue
+            }
+          }
 
 
           // fetch des coordonnées
@@ -39,7 +53,7 @@ export function useMeteo(villes, onVilleInvalide) {
           const dataCoord = await res.json();
 
           if (dataCoord.length === 0) {
-            alert("ville inexistante:", v);
+            alert(`Ville inexistante :"${v}" !\n Veuillez ressaisir une ville`);
             deleteVille(v);
             continue;
           }
@@ -58,8 +72,13 @@ export function useMeteo(villes, onVilleInvalide) {
             name: nameVille,
             meteo: data,
             coord: [lat, lon],
+            loading: false,
+            lastUpdate: currentTime
           };
+
+          window.localStorage.setItem(`Data-${v}`, JSON.stringify(results[v]))
         }
+
 
         setMeteoData(results);
       } catch (err) {
