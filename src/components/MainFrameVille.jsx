@@ -4,6 +4,7 @@ import { VilleDetailWeek } from "./frameVille/VilleDetailWeek"
 import { useSetFrameVille } from "../zustand/setFrame";
 import { useMeteo } from "../customHook/useFetchMeteo";
 import { useEffect } from "react";
+import { parseData } from "./../parseData"
 
 
 export default function MainFrameVille({ villes, onRemoveVille }) {
@@ -66,8 +67,9 @@ export default function MainFrameVille({ villes, onRemoveVille }) {
                 key={v}
                 ville={v}
                 onRemoveVille={onRemoveVille}
-                meteoData={data}
-                loading={loading} />
+                meteoData={parseData(data)}
+                loading={loading} 
+                />
 
 
         return null

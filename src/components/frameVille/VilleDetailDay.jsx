@@ -33,7 +33,6 @@ export function VilleDetailDay({ ville, onRemoveVille, meteoData, loading }) {
 
     return <div key={villeData.nameVille} className="flex flex-col py-10 gap-5 border rounded-xl w-full items-center relative bg-white">
 
-        <ButtonDeleteVille onClick={() => onRemoveVille(ville)} />
         <p>{villeData.nameVille}</p>
 
         <div className="flex gap-16">
@@ -43,12 +42,13 @@ export function VilleDetailDay({ ville, onRemoveVille, meteoData, loading }) {
 
 
         {/* Caroussel pour faire defiler les data par tranche de 6 */}
-        < CarousselHourly arrayHourly={blocsHours} data={villeData}/>
+        < CarousselHourly arrayHourly={blocsHours} data={villeData} />
 
 
-        <div className="flex flex-col gap-2">
+        <div className="flex gap-2">
             <ButtonChangeToCurrentDay ville={ville} />
             <ButtonChangeToWeek ville={ville} />
+            <ButtonDeleteVille onClick={() => onRemoveVille(ville)} />
         </div>
     </div>
 

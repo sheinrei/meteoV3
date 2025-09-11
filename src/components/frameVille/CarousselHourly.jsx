@@ -25,13 +25,15 @@ export function CarousselHourly({ data, arrayHourly }) {
 
             {
                 blocsHours[index].map((e, i) => (
-                    <div key={index+i} className="flex flex-col bg-sky-200 rounded-2xl">
+                    <div key={index + i} className="flex flex-col bg-sky-200 rounded-2xl items-center">
                         <p>{index * 4 + i}h00</p>
                         <img className="w-20 h-15" src={"./../" + descriptionMeteo(arrayWeather[index * 4 + i])} alt="image de la meteo" />
-                        <p>Température : {e}°C</p>
-                        <p>Humidité : {arrayHumidity[index * 4 + i]}%</p>
-                        <p>Précipitation : {arrayPrecipitation[index * 4 + i]}mm</p>
-                        <p>Vent : {arrayWind[index * 4 + i]}km/h</p>
+                        <div className="flex flex-col">
+                            <p>Température : {e}°C</p>
+                            <p>Humidité : {arrayHumidity[index * 4 + i]}%</p>
+                            <p>Précipitation : {arrayPrecipitation[index * 4 + i]}mm</p>
+                            <p>Vent : {arrayWind[index * 4 + i]}km/h</p>
+                        </div>
                     </div>
                 ))
             }

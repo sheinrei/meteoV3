@@ -53,10 +53,10 @@ export function VilleCurrentData({ ville, onRemoveVille, meteoData, loading }) {
             </div>
         </div>
 
-            <div className="flex flex gap-2">
-                <ButtonDeleteVille onClick={() => onRemoveVille(ville)} />
+            <div className="flex flex gap-2 relative">
                 <ButtonChangeToDetailDay ville={ville} />
                 <ButtonChangeToWeek ville={ville} />
+                <ButtonDeleteVille onClick={() => onRemoveVille(ville)} />
             </div>
 
     </div>
