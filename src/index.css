@@ -2,3 +2,34 @@
 @import 'leaflet/dist/leaflet.css';
 @plugin "daisyui";
 
+.carousel-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.animate-slide-next {
+  animation: slideInFromRight 0.5s ease-out;
+}
+
+.animate-slide-prev {
+  animation: slideInFromLeft 0.5s ease-out;
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.4s ease-out both;
+}
+
+@keyframes slideInFromRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

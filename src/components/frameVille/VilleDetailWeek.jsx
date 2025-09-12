@@ -1,8 +1,15 @@
 import { descriptionMeteo } from "../../function"
+import { switchCaroussel } from "../../animate"
 import { ButtonChangeToCurrentDay } from "./../button/buttonChangeToCurrentDay"
 import { ButtonChangeToDetailDay } from "./../button/buttonChangeToDetailDay"
 import { ButtonDeleteVille } from "./../button/buttonDeleatVille"
 import { useState } from "react"
+
+
+
+
+
+
 
 export function VilleDetailWeek({ ville, onRemoveVille, meteoData, loading }) {
 
@@ -14,18 +21,29 @@ export function VilleDetailWeek({ ville, onRemoveVille, meteoData, loading }) {
         <span className="loading loading-ring loading-xl"></span>
     </div>
 
-    // Fonctions corrigées pour naviguer entre les jours
-    const prev = () => setIndex(index === 0 ? index : index - 1)
-        
-    const next = () => setIndex(index === data.length - 1 ? index : index + 1)
 
-    // Plus besoin d'arrayTest, on utilise directement data[index]
+
+
+    // Fonctions nav caroussel
+    const prev = () => {
+        const element = document.getElementById(`caroussel-day-${ville}`);
+        index === 0 ? null : switchCaroussel(element, setIndex, -1)
+    }
+
+    const next = () => {
+        const element = document.getElementById(`caroussel-day-${ville}`);
+        index === data.length - 1? null : switchCaroussel(element, setIndex, 1)
+    }
+
+
+
+
+
     const currentDay = data[index]
-
-    return <div className="flex flex-col py-6 gap-5 border rounded-xl w-full items-center relative bg-white">
+    return <div id={`weekly-${ville}`} className="flex flex-col py-6 gap-5 border rounded-xl w-full items-center relative bg-white">
         <p>{meteoData.nameVille}</p>
 
-        <div className="border items-center flex flex-col ">
+        <div id={`caroussel-day-${ville}`} className="border items-center flex flex-col ">
             <p>{currentDay.day.currentDay}</p>
             <div className="flex flex-col">
                 <div className="flex gap-4">

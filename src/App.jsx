@@ -2,6 +2,7 @@ import SearchVille from './components/SearchVille.jsx'
 import MainFrameVille  from './components/MainFrameVille.jsx'
 import useLocalStorage from './customHook/localStorage.jsx';
 
+
 function App() {
 
   const [listVille, setListVille] = useLocalStorage("ville", ["toulouse"]);
@@ -17,7 +18,7 @@ function App() {
   return <div className='border flex flex-col items-center p-10 w-max gap-9 bg-stone-200'>
 
 
-    
+
     <SearchVille onAddVille={addVille} />
     <MainFrameVille villes={listVille} onRemoveVille={deleteVille}/> 
   </div>

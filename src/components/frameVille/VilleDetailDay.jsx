@@ -4,6 +4,9 @@ import { ButtonDeleteVille } from "./../button/buttonDeleatVille"
 import { parseData } from "./../../parseData"
 import { CarousselHourly } from "./CarousselHourly"
 
+
+
+
 export function VilleDetailDay({ ville, onRemoveVille, meteoData, loading }) {
 
 
@@ -42,7 +45,7 @@ export function VilleDetailDay({ ville, onRemoveVille, meteoData, loading }) {
 
 
         {/* Caroussel pour faire defiler les data par tranche de 6 */}
-        < CarousselHourly arrayHourly={blocsHours} data={villeData} />
+        < CarousselHourly arrayHourly={blocsHours} data={villeData} ville={ville}/>
 
 
         <div className="flex gap-2">

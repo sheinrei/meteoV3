@@ -42,6 +42,7 @@ export default function MainFrameVille({ villes, onRemoveVille }) {
             </div>
         }
 
+        
 
 
         if (frame === "current")

@@ -5,9 +5,58 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ma Meteo v3</title>
+
+
+     <script>
+        // 🚀 SHEINREI LOGGER - Le logger qui claque ! 🚀
+const Sheinrei = {
+    // Styles prédéfinis
+    styles: {
+        brand: 'background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24); background-size: 300% 300%; padding: 8px 16px; border-radius: 20px; color: white; font-weight: bold; font-size: 14px; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);',
+        success: 'background: linear-gradient(45deg, #28a745, #20c997); color: white; padding: 6px 12px; border-radius: 15px; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);',
+        error: 'background: linear-gradient(45deg, #dc3545, #e83e8c); color: white; padding: 6px 12px; border-radius: 15px; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);',
+        warning: 'background: linear-gradient(45deg, #ffc107, #fd7e14); color: #212529; padding: 6px 12px; border-radius: 15px; font-weight: bold; text-shadow: 1px 1px 2px rgba(255,255,255,0.3);',
+        info: 'background: linear-gradient(45deg, #17a2b8, #6f42c1); color: white; padding: 6px 12px; border-radius: 15px; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);',
+        debug: 'background: linear-gradient(45deg, #6c757d, #495057); color: white; padding: 6px 12px; border-radius: 15px; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);',
+        fire: 'background: linear-gradient(45deg, #ff4757, #ff3742, #ff6348); color: white; padding: 6px 12px; border-radius: 15px; font-weight: bold; text-shadow: 0 0 10px #ff4757;',
+        rocket: 'background: linear-gradient(45deg, #3742fa, #2f3542, #40407a); color: white; padding: 6px 12px; border-radius: 15px; font-weight: bold; text-shadow: 0 0 10px #3742fa;',
+        rainbow: 'background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7, #fab1a0, #fd79a8); background-size: 400% 400%; color: white; padding: 6px 12px; border-radius: 15px; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);'
+    },
+
+    // ASCII Banner
+    banner() {
+        const banner = `
+%c
+  ███████╗██╗  ██╗███████╗██╗███╗   ██╗██████╗ ███████╗██╗
+  ██╔════╝██║  ██║██╔════╝██║████╗  ██║██╔══██╗██╔════╝██║
+  ███████╗███████║█████╗  ██║██╔██╗ ██║██████╔╝█████╗  ██║
+  ╚════██║██╔══██║██╔══╝  ██║██║╚██╗██║██╔══██╗██╔══╝  ██║
+  ███████║██║  ██║███████╗██║██║ ╚████║██║  ██║███████╗██║
+  ╚══════╝╚═╝  ╚═╝╚══════╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝╚═╝
+                                                           
+            🚀 SheinreiCorp ©2025 🚀
+`;
+        console.log(banner, 'color: #Ff6b6b; font-family: monospace; font-weight: bold; text-shadow: 0 0 10px #ff6b6b;');
+    },
+
+
+
+};
+
+
+Sheinrei.banner();
+
+    </script>
   </head>
+
+
+
+
   <body class="bg-zinc-700 min-h-screen">
+
     <div id="root" class="flex justify-center"></div>
+
     <script type="module" src="/src/main.jsx"></script>
+
   </body>
 </html>
