@@ -7,17 +7,8 @@ import { parseData } from "./../../parseData"
 
 export function VilleCurrentData({ ville, onRemoveVille, meteoData, loading }) {
 
-    const styleDetailData = ""
-
-    /* 
-            if (loading || !meteoData[ville]) {
-                return <div key={ville} className="flex gap-2">
-                    <p>Chargement de la ville...</p>
-                    <span className="loading loading-ring loading-xl"></span>
-                </div>
-            }
-    
-     */
+    const styleDetailData = "flex"
+    const styleSun = "border rounded-xl px-2 bg-sky-200 "
 
 
     const villeData = parseData(meteoData);
@@ -36,28 +27,35 @@ export function VilleCurrentData({ ville, onRemoveVille, meteoData, loading }) {
 
         <p className="">{villeData.nameVille}</p>
 
+        <div className="flex gap-4">
+            <p className={styleSun}>Levé soleil : {villeData.daily.sunrise}</p>
+            <p className={styleSun}>Couché du soleil : {villeData.daily.sunset}</p>
+        </div>
 
 
-        <div className="flex gap-5 justify-center w-full">
+        <div className="flex gap-5 justify-center ">
             <div className="border bg-green-50">
                 <OSMMap lat={villeData.coord[0]} lng={villeData.coord[1]} />
             </div>
 
             <div className="flex-col flex gap-3">
                 <p className="flex items-center">Ciel :<img className="w-20 h-15" src={villeData.current.currentWeather} /></p>
-                <p className={styleDetailData}>temperature : {villeData.current.currentTemperature}°C</p>
-                <p className={styleDetailData}>Humidité : {villeData.current.currentHumidity}%</p>
-                <p className={styleDetailData}>Précipitation : {villeData.current.currentPrecipitation}mm</p>
-                <p className={styleDetailData}>Levé soleil : {villeData.daily.sunrise}</p>
-                <p className={styleDetailData}>Couché du soleil : {villeData.daily.sunset}</p>
+                <p className={styleDetailData}><img width="24" height="24" src="https://img.icons8.com/ultraviolet/24/temperature.png" alt="temperature" />
+                    : {villeData.current.currentTemperature}°C</p>
+
+                <p className={styleDetailData}><img width="24" height="24" src="https://img.icons8.com/color/24/blur.png" alt="blur" />
+                    : {villeData.current.currentHumidity}%</p>
+
+                <p className={styleDetailData}><img width="24" height="24" src="https://img.icons8.com/ultraviolet/40/hygrometer.png" alt="hygrometer" />
+                    : {villeData.current.currentPrecipitation}mm</p>
             </div>
         </div>
 
-            <div className="flex flex gap-2 relative">
-                <ButtonChangeToDetailDay ville={ville} />
-                <ButtonChangeToWeek ville={ville} />
-                <ButtonDeleteVille onClick={() => onRemoveVille(ville)} />
-            </div>
+        <div className="flex flex gap-2 relative">
+            <ButtonChangeToDetailDay ville={ville} />
+            <ButtonChangeToWeek ville={ville} />
+            <ButtonDeleteVille onClick={() => onRemoveVille(ville)} />
+        </div>
 
     </div>
 
