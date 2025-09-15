@@ -23,14 +23,14 @@ export function CarousselHourly({ data, arrayHourly, ville }) {
         if (isAnimating) return
         setDirection('prev')
         setIsAnimating(true)
-        setIndex(index === 0 ? blocsHours.length - 1 : index - 1)
+        setIndex(index === 0 ? 0 : index - 1)
     }
 
     const next = () => {
         if (isAnimating) return
         setDirection('next')
         setIsAnimating(true)
-        setIndex(index === blocsHours.length - 1 ? 0 : index + 1)
+        setIndex(index === blocsHours.length - 1 ? blocsHours.length - 1 : index + 1)
     }
 
 
@@ -57,12 +57,12 @@ export function CarousselHourly({ data, arrayHourly, ville }) {
             </button>
 
             <div className="carousel-container overflow-hidden">
-                <div className={`flex gap-4 transition-all duration-500 ease-out ${isAnimating ? (direction === 'next' ? 'animate-slide-next' : 'animate-slide-prev') : ''
+                <div className={`flex px-2 py-4 gap-8 transition-all duration-500 ease-out ${isAnimating ? (direction === 'next' ? 'animate-slide-next' : 'animate-slide-prev') : ''
                     }`}>
                     {blocsHours[index].map((e, i) => (
                         <div
                             key={`${index}-${i}`}
-                            className={`flex flex-col bg-sky-200 rounded-2xl items-center transition-all duration-300 hover:scale-105 hover:shadow-lg ${isAnimating ? 'animate-fade-in' : ''
+                            className={`flex border flex-col px-5 py-2 bg-sky-200 rounded-2xl items-center transition-all duration-300 hover:scale-105 hover:shadow-lg ${isAnimating ? 'animate-fade-in' : ''
                                 }`}
                             style={{
                                 animationDelay: `${i * 100}ms`
@@ -75,17 +75,17 @@ export function CarousselHourly({ data, arrayHourly, ville }) {
                                 alt="image de la meteo"
                             />
                             <div className="flex flex-col">
-                                <p className="animate-fade-in" style={{ animationDelay: `${i * 100 + 100}ms` }}>
-                                    Température : {e}°C
+                                <p className="animate-fade-in flex" style={{ animationDelay: `${i * 100 + 100}ms` }}>
+                                    <img width="24" height="24" src="https://img.icons8.com/ultraviolet/24/temperature.png" alt="temperature" /> : {e}°C
                                 </p>
-                                <p className="animate-fade-in" style={{ animationDelay: `${i * 100 + 200}ms` }}>
-                                    Humidité : {arrayHumidity[index * 4 + i]}%
+                                <p className="animate-fade-in flex" style={{ animationDelay: `${i * 100 + 200}ms` }}>
+                                    <img width="24" height="24" src="https://img.icons8.com/color/24/blur.png" alt="blur" /> : {arrayHumidity[index * 4 + i]}%
                                 </p>
-                                <p className="animate-fade-in" style={{ animationDelay: `${i * 100 + 300}ms` }}>
-                                    Précipitation : {arrayPrecipitation[index * 4 + i]}mm
+                                <p className="animate-fade-in flex" style={{ animationDelay: `${i * 100 + 300}ms` }}>
+                                    <img width="24" height="24" src="https://img.icons8.com/ultraviolet/40/hygrometer.png" alt="hygrometer" /> : {arrayPrecipitation[index * 4 + i]}mm
                                 </p>
-                                <p className="animate-fade-in" style={{ animationDelay: `${i * 100 + 400}ms` }}>
-                                    Vent : {arrayWind[index * 4 + i]}km/h
+                                <p className="animate-fade-in flex" style={{ animationDelay: `${i * 100 + 400}ms` }}>
+                                    <img width="24" height="24" src="https://img.icons8.com/color/24/wind.png" alt="wind" /> : {arrayWind[index * 4 + i]}km/h
                                 </p>
                             </div>
                         </div>

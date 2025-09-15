@@ -10,7 +10,7 @@ export function switchCaroussel(element, setIndex, initialDirection) {
 
     function animate() {
         element.style.transform = `translateX(${x}px)`;
-        x += 6.5 * direction;
+        x += 9.5 * direction;
         
         element.style.opacity = Math.max(0, Math.min(1, z));
         phase === 'out' ? z -= 0.026 : z += 0.026

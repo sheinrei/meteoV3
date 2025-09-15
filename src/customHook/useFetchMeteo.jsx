@@ -62,6 +62,9 @@ export function useMeteo(villes, onVilleInvalide) {
           const lat = dataCoord[0].lat;
           const lon = dataCoord[0].lon;
 
+
+
+          
           // fetch de la météo
           console.log("lancement de fetch pour :", v);
           const res2 = await fetch(

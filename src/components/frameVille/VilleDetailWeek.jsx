@@ -35,23 +35,24 @@ export function VilleDetailWeek({ ville, onRemoveVille, meteoData, loading }) {
         index === data.length - 1? null : switchCaroussel(element, setIndex, 1)
     }
 
-
+    const styleFrame = "border flex flex-col items-center bg-sky-200 rounded-2xl py-2 hover:scale-105"
 
 
 
     const currentDay = data[index]
-    return <div id={`weekly-${ville}`} className="flex flex-col py-6 gap-5 border rounded-xl w-full items-center relative bg-white">
+
+    return <div id={`weekly-${ville}`} className="flex flex-col py-6 gap-7 border rounded-xl w-full items-center relative bg-white">
         <p>{meteoData.nameVille}</p>
 
-        <div id={`caroussel-day-${ville}`} className="border items-center flex flex-col ">
-            <p>{currentDay.day.currentDay}</p>
+        <div id={`caroussel-day-${ville}`} className="items-center flex flex-col gap-4 px-4">
+            <h2>{currentDay.day.currentDay}</h2>
             <div className="flex flex-col">
                 <div className="flex gap-4">
-                    <p className="flex items-center"><img width="30" height="30" src="https://img.icons8.com/color/24/sunrise.png" alt="sunrise" />
-                        : {currentDay.day.sunrise[index]}</p>
+                    <p className="border px-2 rounded-xl bg-sky-200">
+                       Levé du soleil : {currentDay.day.sunrise[index]}</p>
 
-                    <p className="flex items-center"><img width="30" height="30" src="https://img.icons8.com/color/50/sunset.png" alt="sunset" />
-                        : {currentDay.day.sunset[index]}</p>
+                    <p className="border px-2 rounded-xl bg-sky-200">
+                       Couché du soleil : {currentDay.day.sunset[index]}</p>
                 </div>
             </div>
 
@@ -59,10 +60,10 @@ export function VilleDetailWeek({ ville, onRemoveVille, meteoData, loading }) {
 
                 <button className="btn btn-circle" onClick={prev}>❮</button>
 
-                <div className="border flex flex-col items-center">
+                <div className={styleFrame}>
                     <p>Matin</p>
-                    <div className="px-2">
-                        <img className="w-28 h-24" src={`./../public/${descriptionMeteo(currentDay.matin.weatherM)}`} alt="icone de la meteo " />
+                    <div className="px-5 py-2 ">
+                        <img className="w-20 h-15" src={`./../public/${descriptionMeteo(currentDay.matin.weatherM)}`} alt="icone de la meteo " />
 
                         <p className="flex"><img width="24" height="24" src="https://img.icons8.com/ultraviolet/24/temperature.png" alt="temperature" />
                             : {currentDay.matin.tempM}°C</p>
@@ -78,11 +79,11 @@ export function VilleDetailWeek({ ville, onRemoveVille, meteoData, loading }) {
                     </div>
                 </div>
 
-                <div className="border flex flex-col items-center">
+                <div className={styleFrame}>
                     <p>Soir</p>
 
-                    <div className="px-2">
-                        <img className="w-28 h-24" src={`./../public/${descriptionMeteo(currentDay.soir.weatherS)}`} alt="icone de la meteo " />
+                    <div className="px-5 py-2">
+                        <img className="w-20 h-15" src={`./../public/${descriptionMeteo(currentDay.soir.weatherS)}`} alt="icone de la meteo " />
                         <p className="flex"><img width="24" height="24" src="https://img.icons8.com/ultraviolet/24/temperature.png" alt="temperature" />
                             : {currentDay.soir.tempS}°C</p>
 

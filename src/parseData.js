@@ -36,11 +36,19 @@ export function parseData(data) {
     const arrayWeek = [];
     for (let i = 0; i < 7; i++) {
 
-        const arrayDate = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"]
-        const indexDate = new Date().getDay();
-        const index = (indexDate - 1 + i + 7) % 7;
-        const currentDay = arrayDate[index];
+        const arrayJour = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
+        const arrayMois = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
 
+        const today = new Date();
+
+        const futureDate = new Date(today);
+        futureDate.setDate(today.getDate() + i); 
+
+        const day = arrayJour[futureDate.getDay()]; 
+        const dayNumber = futureDate.getDate();
+        const month = arrayMois[futureDate.getMonth()];
+        const year = today.getFullYear()
+        const currentDay = `${day} ${dayNumber} ${month} ${year}`;
 
 
 
