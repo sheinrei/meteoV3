@@ -32,7 +32,20 @@ export function VilleDetailDay({ ville, onRemoveVille, meteoData, loading }) {
     //traitement des données dans meteoData
     const villeData = parseData(meteoData)
 
-    const blocsHours = chunkArray(villeData.daily.arrayTempDaily, 4);
+
+    let split = 0;
+    const clientWidth = window.innerWidth;
+
+    if (clientWidth <= 764){
+        split = 3
+    }else if(clientWidth > 764 && clientWidth < 1024){
+        split = 4
+    }else{
+        split = 5
+    }
+
+
+    const blocsHours = chunkArray(villeData.daily.arrayTempDaily, split);
 
     return <div key={villeData.nameVille} className="flex flex-col py-10 gap-5 border rounded-xl w-full items-center relative bg-white">
 
@@ -45,7 +58,7 @@ export function VilleDetailDay({ ville, onRemoveVille, meteoData, loading }) {
 
 
         {/* Caroussel pour faire defiler les data par tranche de 6 */}
-        < CarousselHourly arrayHourly={blocsHours} data={villeData} ville={ville}/>
+        < CarousselHourly arrayHourly={blocsHours} data={villeData} ville={ville} splited={split}/>
 
 
         <div className="flex gap-2">

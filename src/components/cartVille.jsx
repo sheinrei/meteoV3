@@ -1,11 +1,10 @@
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import L from "leaflet";
-import "../index.css"; 
+import "../index.css";
 import iconRetinaUrl from "leaflet/dist/images/marker-icon-2x.png";
 import iconUrl from "leaflet/dist/images/marker-icon.png";
 import shadowUrl from "leaflet/dist/images/marker-shadow.png";
 
-// Fix icon par défaut Leaflet
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl,
@@ -14,12 +13,19 @@ L.Icon.Default.mergeOptions({
 });
 
 export default function OSMMap({ lat = 43.6045, lng = 1.444 }) {
-  const currentWidth = document.body.clientWidth
 
-  let width;
-  currentWidth < 768 ? width = "w-80" : width = "w-120"
+  const clientWidth = window.innerWidth;
+  let dim;
+
+  if (clientWidth < 768) {
+    dim = "w-80";
+  } else if (clientWidth < 1024) {
+    dim = "w-100";
+  } else {
+    dim = "w-140";
+  }
   return (
-    <MapContainer center={[lat, lng]} zoom={7} className={`${width} h-full z-0`}>
+    <MapContainer center={[lat, lng]} zoom={6} className={`${dim} h-80 z-0`}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

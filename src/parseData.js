@@ -6,6 +6,9 @@ export function parseData(data) {
 
     const villeData = data
 
+    const update = villeData.lastUpdate
+
+
     const nameVille = villeData.name
     const coord = villeData.coord
 
@@ -42,9 +45,9 @@ export function parseData(data) {
         const today = new Date();
 
         const futureDate = new Date(today);
-        futureDate.setDate(today.getDate() + i); 
+        futureDate.setDate(today.getDate() + i);
 
-        const day = arrayJour[futureDate.getDay()]; 
+        const day = arrayJour[futureDate.getDay()];
         const dayNumber = futureDate.getDate();
         const month = arrayMois[futureDate.getMonth()];
         const year = today.getFullYear()
@@ -52,29 +55,37 @@ export function parseData(data) {
 
 
 
-        const indexM = [i * 24, i * 24 + 12]
-        const indexS = [i * 24 + 12, i * 24 + 24]
-        const tempM = Math.max(...villeData.meteo.hourly.temperature_2m.slice(indexM[0], indexM[1]))
-        const tempS = Math.max(...villeData.meteo.hourly.temperature_2m.slice(indexS[0], indexS[1]))
+        const indexAm = [i * 24 , i * 24 + 11]
+        const indexPM = [i * 24 + 12, i * 24 + 23]
 
-        const humidityM = villeData.meteo.hourly.relative_humidity_2m.slice(indexM[0], indexM[1]).reduce((a, b) => (a + b)) / 12
-        const humidityS = villeData.meteo.hourly.relative_humidity_2m.slice(indexS[0], indexS[1]).reduce((a, b) => (a + b)) / 12
+        const tempAm = Math.max(...villeData.meteo.hourly.temperature_2m.slice(indexAm[0], indexAm[1]))
+        const tempPm = Math.max(...villeData.meteo.hourly.temperature_2m.slice(indexPM[0], indexPM[1]))
 
-        const windM = villeData.meteo.hourly.wind_speed_10m.slice(indexM[0], indexM[1]).reduce((a, b) => (a + b)) / 12
-        const windS = villeData.meteo.hourly.wind_speed_10m.slice(indexS[0], indexS[1]).reduce((a, b) => (a + b)) / 12
+        
+        const humidityAm = villeData.meteo.hourly.relative_humidity_2m.slice(indexAm[0], indexAm[1]).reduce((a, b) => (a + b)) / 12
+        const humidityPm = villeData.meteo.hourly.relative_humidity_2m.slice(indexPM[0], indexPM[1]).reduce((a, b) => (a + b)) / 12
+        
 
-        const precipitationM = villeData.meteo.hourly.precipitation.slice(indexM[0], indexM[1]).reduce((a, b) => a + b).toFixed(1)
-        const precipitationS = villeData.meteo.hourly.precipitation.slice(indexS[0], indexS[1]).reduce((a, b) => a + b).toFixed(1)
+        const windAm = villeData.meteo.hourly.wind_speed_10m.slice(indexAm[0], indexAm[1]).reduce((a, b) => (a + b)) / 12
+        const windPm = villeData.meteo.hourly.wind_speed_10m.slice(indexPM[0], indexPM[1]).reduce((a, b) => (a + b)) / 12
 
-        const weatherCodesM = villeData.meteo.hourly.weather_code.slice(indexM[0], indexM[1]);
-        const weatherM = weatherCodesM.sort((a, b) =>
-            weatherCodesM.filter(v => v === a).length - weatherCodesM.filter(v => v === b).length
+
+        const precipitationAm = villeData.meteo.hourly.precipitation.slice(indexAm[0], indexAm[1]).reduce((a, b) => a + b).toFixed(1)
+        const precipitationPm = villeData.meteo.hourly.precipitation.slice(indexPM[0], indexPM[1]).reduce((a, b) => a + b).toFixed(1)
+
+
+        const weatherCodesAm = villeData.meteo.hourly.weather_code.slice(indexAm[0], indexAm[1]);
+        const weatherAm = weatherCodesAm.sort((a, b) =>
+            weatherCodesAm.filter(v => v === a).length - weatherCodesAm.filter(v => v === b).length
         ).pop();
 
-        const weatherCodesS = villeData.meteo.hourly.weather_code.slice(indexS[0], indexS[1]);
-        const weatherS = weatherCodesS.sort((a, b) =>
-            weatherCodesS.filter(v => v === a).length - weatherCodesS.filter(v => v === b).length
+        const weatherCodesPm = villeData.meteo.hourly.weather_code.slice(indexPM[0], indexPM[1]);
+        const weatherPm = weatherCodesPm.sort((a, b) =>
+            weatherCodesPm.filter(v => v === a).length - weatherCodesPm.filter(v => v === b).length
         ).pop();
+
+
+
 
         const o = {
             day: {
@@ -84,20 +95,22 @@ export function parseData(data) {
 
             },
             matin: {
-                tempM,
-                weatherM,
-                humidityM,
-                precipitationM,
-                windM,
+                temp: tempAm,
+                weather: weatherAm,
+                humidity: humidityAm,
+                precipitation: precipitationAm,
+                wind: windAm,
             },
-            soir: {
-                tempS,
-                weatherS,
-                humidityS,
-                precipitationS,
-                windS,
+            apresMidi: {
+                temp: tempPm,
+                weather: weatherPm,
+                humidity: humidityPm,
+                precipitation: precipitationPm,
+                wind: windPm,
             }
         }
+
+
         arrayWeek.push(o)
     }
 
@@ -126,7 +139,7 @@ export function parseData(data) {
             arrayWeatherDaily,
             arrayWindDaily,
         },
-
+        update,
         week: arrayWeek
     }
 }

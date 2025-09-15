@@ -32,7 +32,7 @@ export function VilleDetailWeek({ ville, onRemoveVille, meteoData, loading }) {
 
     const next = () => {
         const element = document.getElementById(`caroussel-day-${ville}`);
-        index === data.length - 1? null : switchCaroussel(element, setIndex, 1)
+        index === data.length - 1 ? null : switchCaroussel(element, setIndex, 1)
     }
 
     const styleFrame = "border flex flex-col items-center bg-sky-200 rounded-2xl py-2 hover:scale-105"
@@ -49,10 +49,10 @@ export function VilleDetailWeek({ ville, onRemoveVille, meteoData, loading }) {
             <div className="flex flex-col">
                 <div className="flex gap-4">
                     <p className="border px-2 rounded-xl bg-sky-200">
-                       Levé du soleil : {currentDay.day.sunrise[index]}</p>
+                        Levé du soleil : {currentDay.day.sunrise[index]}</p>
 
                     <p className="border px-2 rounded-xl bg-sky-200">
-                       Couché du soleil : {currentDay.day.sunset[index]}</p>
+                        Couché du soleil : {currentDay.day.sunset[index]}</p>
                 </div>
             </div>
 
@@ -63,40 +63,44 @@ export function VilleDetailWeek({ ville, onRemoveVille, meteoData, loading }) {
                 <div className={styleFrame}>
                     <p>Matin</p>
                     <div className="px-5 py-2 ">
-                        <img className="w-20 h-15" src={`./../public/${descriptionMeteo(currentDay.matin.weatherM)}`} alt="icone de la meteo " />
+                        <img className="w-20 h-15" src={`./../public/${descriptionMeteo(currentDay.matin.weather)}`} alt="icone de la meteo " />
 
-                        <p className="flex"><img width="24" height="24" src="https://img.icons8.com/ultraviolet/24/temperature.png" alt="temperature" />
-                            : {currentDay.matin.tempM}°C</p>
+                        <p className="flex animate-fade-in " style={{ animationDelay: `${0 * 100 + 400}ms` }}><img width="24" height="24" src="https://img.icons8.com/ultraviolet/24/temperature.png" alt="temperature" />
+                            : {currentDay.matin.temp}°C</p>
 
-                        <p className="flex"><img width="24" height="24" src="https://img.icons8.com/color/24/blur.png" alt="blur" />
-                            : {currentDay.matin.humidityM.toFixed(1)}%</p>
+                        <p className="flex animate-fade-in " style={{ animationDelay: `${1 * 100 + 400}ms` }}><img width="24" height="24" src="https://img.icons8.com/color/24/blur.png" alt="blur" />
+                            : {currentDay.matin.humidity.toFixed(1)}%</p>
 
-                        <p className="flex"><img width="24" height="24" src="https://img.icons8.com/ultraviolet/40/hygrometer.png" alt="hygrometer" />
-                            : {currentDay.matin.precipitationM}mm</p>
+                        <p className="flex animate-fade-in " style={{ animationDelay: `${2 * 100 + 400}ms` }}><img width="24" height="24" src="https://img.icons8.com/ultraviolet/40/hygrometer.png" alt="hygrometer" />
+                            : {currentDay.matin.precipitation}mm</p>
 
-                        <p className="flex"><img width="24" height="24" src="https://img.icons8.com/color/24/wind.png" alt="wind" />
-                            : {currentDay.matin.windM.toFixed(1)}km/h</p>
+                        <p className="flex animate-fade-in " style={{ animationDelay: `${3 * 100 + 400}ms` }}><img width="24" height="24" src="https://img.icons8.com/color/24/wind.png" alt="wind" />
+                            : {currentDay.matin.wind.toFixed(1)}km/h</p>
                     </div>
                 </div>
 
                 <div className={styleFrame}>
-                    <p>Soir</p>
+                    <p>Après-midi</p>
 
                     <div className="px-5 py-2">
-                        <img className="w-20 h-15" src={`./../public/${descriptionMeteo(currentDay.soir.weatherS)}`} alt="icone de la meteo " />
-                        <p className="flex"><img width="24" height="24" src="https://img.icons8.com/ultraviolet/24/temperature.png" alt="temperature" />
-                            : {currentDay.soir.tempS}°C</p>
+                        <img className="w-20 h-15" src={`./../public/${descriptionMeteo(currentDay.apresMidi.weather)}`} alt="icone de la meteo " />
+                        <p className="flex animate-fade-in " style={{ animationDelay: `${0 * 100 + 400}ms` }}><img width="24" height="24" src="https://img.icons8.com/ultraviolet/24/temperature.png" alt="temperature" />
+                            : {currentDay.apresMidi.temp}°C</p>
 
-                        <p className="flex"><img width="24" height="24" src="https://img.icons8.com/color/24/blur.png" alt="blur" />
-                            : {currentDay.soir.humidityS.toFixed(1)}%</p>
+                        <p className="flex animate-fade-in " style={{ animationDelay: `${1 * 100 + 400}ms` }}><img width="24" height="24" src="https://img.icons8.com/color/24/blur.png" alt="blur" />
+                            : {currentDay.apresMidi.humidity.toFixed(1)}%</p>
 
-                        <p className="flex"><img width="24" height="24" src="https://img.icons8.com/ultraviolet/40/hygrometer.png" alt="hygrometer" />
-                            : {currentDay.soir.precipitationS}mm</p>
+                        <p className="flex animate-fade-in " style={{ animationDelay: `${2 * 100 + 400}ms` }}><img width="24" height="24" src="https://img.icons8.com/ultraviolet/40/hygrometer.png" alt="hygrometer" />
+                            : {currentDay.apresMidi.precipitation}mm</p>
 
-                        <p className="flex"><img width="24" height="24" src="https://img.icons8.com/color/24/wind.png" alt="wind" />
-                            : {currentDay.soir.windS.toFixed(1)}km/h</p>
+                        <p className="flex animate-fade-in " style={{ animationDelay: `${3 * 100 + 400}ms` }}><img width="24" height="24" src="https://img.icons8.com/color/24/wind.png" alt="wind" />
+                            : {currentDay.apresMidi.wind.toFixed(1)}km/h</p>
                     </div>
                 </div>
+
+
+
+
                 <button className="btn btn-circle" onClick={next}>❯</button>
             </div>
         </div>
