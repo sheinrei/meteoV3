@@ -5,7 +5,7 @@ import OSMMap from "./../cartVille"
 import { parseData } from "./../../parseData"
 
 
-export function VilleCurrentData({ ville, onRemoveVille, meteoData, loading }) {
+export function VilleCurrentData({ ville, onRemoveVille, meteoData }) {
 
     const styleDetailData = "flex"
     const styleSun = "border rounded-xl px-2 bg-sky-200 "
@@ -38,7 +38,7 @@ export function VilleCurrentData({ ville, onRemoveVille, meteoData, loading }) {
                 <OSMMap lat={villeData.coord[0]} lng={villeData.coord[1]} />
             </div>
 
-            <div className="flex-col flex gap-3">
+            <div className="flex-col flex gap-2 border p-2 rounded-xl bg-sky-200">
                 <p className="flex items-center">Ciel :<img className="w-20 h-15" src={villeData.current.currentWeather} /></p>
                 <p className={styleDetailData}><img width="24" height="24" src="https://img.icons8.com/ultraviolet/24/temperature.png" alt="temperature" />
                     : {villeData.current.currentTemperature}°C</p>

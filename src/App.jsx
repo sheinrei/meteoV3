@@ -1,5 +1,5 @@
 import SearchVille from './components/SearchVille.jsx'
-import MainFrameVille  from './components/MainFrameVille.jsx'
+import MainFrameVille from './components/MainFrameVille.jsx'
 import useLocalStorage from './customHook/localStorage.jsx';
 import Geoloc from "./components/Geoloc.jsx"
 
@@ -9,19 +9,19 @@ function App() {
 
   const addVille = (newVille) => setListVille(prev => [newVille, ...prev]);
 
-  const deleteVille = (villeDeleted) =>{
+  const deleteVille = (villeDeleted) => {
     setListVille(prev => prev.filter(v => v !== villeDeleted));
     localStorage.removeItem(`Data-${villeDeleted}`)
-  } 
-  
+  }
+
 
 
   return <div className='border flex flex-col items-center p-10 w-max gap-9 bg-stone-200'>
 
- 
-   < Geoloc onAddVille={addVille}/>
+    < Geoloc onAddVille={addVille} />
+
     <SearchVille onAddVille={addVille} />
-    <MainFrameVille villes={listVille} onRemoveVille={deleteVille}/> 
+    <MainFrameVille villes={listVille} onRemoveVille={deleteVille} />
   </div>
 
 }

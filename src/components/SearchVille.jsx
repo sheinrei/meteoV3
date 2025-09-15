@@ -18,20 +18,20 @@ export default function SearchVille({onAddVille}) {
     }
 
 
-    return <div className="w-max">
-        <form onSubmit={handleSubmit} className="bg-stone-200 w-xs border flex justify-center items-center gap-5">
+    return <div>
+        <form onSubmit={handleSubmit} className="bg-white border rounded-xl flex px-2">
             <input 
             type="text"
             value={value}
             onChange={handleChange}
-            className="bg-sky-50"
+            className="focus:outline-none hover:bg-stone-100 cursor-pointer"
             placeholder="Chercher une ville ..."
             />
 
             <button
                 type="submit"
-                className="bg-sky-500 rounded-sm py-2 px-3 hover:bg-sky-800"
-            >Envoyer</button>
+                className="rounded-sm py-2 px-3 rounded-full cursor-pointer"
+            ><img width="30" height="30" src="https://img.icons8.com/stickers/100/search.png" alt="search"/></button>
         </form>
     </div>
 }
