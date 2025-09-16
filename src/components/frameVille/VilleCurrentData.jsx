@@ -8,9 +8,8 @@ import { parseData } from "./../../parseData"
 export function VilleCurrentData({ ville, onRemoveVille, meteoData }) {
 
     const styleDetailData = "flex h-full "
-    const styleSun = "border rounded-xl px-2 bg-sky-200 "
+    const styleSun = "border rounded-xl px-4 bg-sky-200 text-center"
     const villeData = parseData(meteoData);
-
 
     //On attends d'avoir la data avant d'afficher
     if (!villeData) {
@@ -22,13 +21,14 @@ export function VilleCurrentData({ ville, onRemoveVille, meteoData }) {
 
 
     return <div key={villeData.nameVille}
-        className="flex flex-col py-10 px-10 gap-7 border w-full items-center rounded-xl bg-white">
+        className="flex flex-col py-10 px-5 gap-7 border w-full items-center rounded-xl bg-white">
 
 
-        <p className="">{villeData.nameVille}</p>
-        <div className="flex gap-4">
-            <p className={styleSun}>Levé soleil : {villeData.daily.sunrise}</p>
-            <p className={styleSun}>Couché du soleil : {villeData.daily.sunset}</p>
+        <h2 className="">{villeData.nameVille}</h2>
+        <div className="flex gap-4 justify-center items-center">
+            <p className={styleSun}>Levé soleil <br/> {villeData.daily.sunrise}</p>
+            <p className={styleSun}>Couché du soleil <br/> {villeData.daily.sunset}</p>
+            <p className={styleSun}>Indice UV <br/> {villeData.daily.uv[0]}</p>
         </div>
 
 
@@ -36,8 +36,9 @@ export function VilleCurrentData({ ville, onRemoveVille, meteoData }) {
 
             <div className="border rounded-xl bg-sky-200 p-2 animate-fade-in">
 
-                <p >Actuellement à {villeData.nameVille.split(",")[0]}</p>
-                <div className="flex gap-2 justify-between items-center">
+                <h2>Actuellement à {villeData.nameVille.split(",")[0]}</h2>
+
+                <div className="flex flex-wrap gap-2 justify-between items-center">
                     <p className={styleDetailData+ "animate-fade-in" } style={{ animationDelay: `${0 * 100 + 400}ms` }}><img className="w-20 h-16" src={villeData.current.currentWeather} /></p>
 
                     <p className={styleDetailData+ "animate-fade-in" } style={{ animationDelay: `${1 * 100 + 400}ms` }}><img width="40" src="https://img.icons8.com/ultraviolet/24/temperature.png" alt="temperature" />
@@ -46,7 +47,10 @@ export function VilleCurrentData({ ville, onRemoveVille, meteoData }) {
                     <p className={styleDetailData+ "animate-fade-in" } style={{ animationDelay: `${2 * 100 + 400}ms` }}><img width="40" src="https://img.icons8.com/color/24/blur.png" alt="blur" />
                         : {villeData.current.currentHumidity}%</p>
 
-                    <p className={styleDetailData+ "animate-fade-in" } style={{ animationDelay: `${3 * 100 + 400}ms` }}><img width="40" src="https://img.icons8.com/ultraviolet/40/hygrometer.png" alt="hygrometer" />
+                    <p className={styleDetailData+ "animate-fade-in" } style={{ animationDelay: `${3 * 100 + 400}ms` }}> <img width="40" height="40" src="https://img.icons8.com/color/24/wind.png" alt="wind" />
+                        : {villeData.current.currentWind}Km/h</p>
+
+                    <p className={styleDetailData+ "animate-fade-in" } style={{ animationDelay: `${4 * 100 + 400}ms` }}><img width="40" src="https://img.icons8.com/ultraviolet/40/hygrometer.png" alt="hygrometer" />
                         : {villeData.current.currentPrecipitation}mm</p>
                 </div>
 

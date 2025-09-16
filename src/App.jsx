@@ -2,8 +2,12 @@ import SearchVille from './components/SearchVille.jsx'
 import MainFrameVille from './components/MainFrameVille.jsx'
 import useLocalStorage from './customHook/localStorage.jsx';
 import Geoloc from "./components/Geoloc.jsx"
+import logBanner from "./logBanner.js"
+
 
 function App() {
+
+  logBanner()
 
   const [listVille, setListVille] = useLocalStorage("ville", ["toulouse"]);
 
@@ -16,7 +20,7 @@ function App() {
 
 
 
-  return <div className='border flex flex-col items-center p-10 w-max gap-9 bg-stone-200'>
+  return <div className='border flex flex-col items-center p-5 w-max gap-9 bg-stone-200'>
 
     < Geoloc onAddVille={addVille} />
 

@@ -68,7 +68,7 @@ export function useMeteo(villes, onVilleInvalide) {
           // fetch de la météo
           console.log("lancement de fetch pour :", v);
           const res2 = await fetch(
-            `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=sunrise,sunset&hourly=temperature_2m,weather_code,relative_humidity_2m,precipitation,rain,wind_speed_10m&current=temperature_2m,relative_humidity_2m,weather_code,precipitation&timezone=Europe%2FBerlin`
+            `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=sunrise,uv_index_max,sunset&hourly=temperature_2m,weather_code,relative_humidity_2m,precipitation,rain,wind_speed_10m&current=temperature_2m,relative_humidity_2m,weather_code,precipitation,wind_speed_10m,wind_direction_10m&timezone=Europe%2FBerlin`
           );
           const data = await res2.json();
           results[v] = {

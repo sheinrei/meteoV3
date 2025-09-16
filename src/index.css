@@ -2,6 +2,19 @@
 @import 'leaflet/dist/leaflet.css';
 @plugin "daisyui";
 
+:root{
+  color-scheme: light;
+}
+
+body{
+  font-family: "TASA Explore";
+  font-size: 1.1em;
+}
+
+h2{
+  font-size : 1.2em
+}
+
 .carousel-container {
   overflow: hidden;
   position: relative;

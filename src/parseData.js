@@ -21,12 +21,16 @@ export function parseData(data) {
     const currentPrecipitation = villeData.meteo.current.precipitation;
     const currentHumidity = villeData.meteo.current.relative_humidity_2m;
     const currentWeather = descriptionMeteo(villeData.meteo.current.weather_code);
-
+    const currentWind = villeData.meteo.current.wind_speed_10m
+    const currentWindDirection = villeData.meteo.current.wind_direction_10m
 
     //daily
     const tempDaily = villeData.meteo.hourly.temperature_2m.slice(0, 24);
     const tempMini = Math.min(...tempDaily);
     const tempMaxi = Math.max(...tempDaily);
+
+    const uv = villeData.meteo.daily.uv_index_max
+
 
     const arrayTempDaily = villeData.meteo.hourly.temperature_2m.slice(0, 24);
     const arrayHumidityDaily = villeData.meteo.hourly.relative_humidity_2m.slice(0, 24);
@@ -100,6 +104,7 @@ export function parseData(data) {
                 humidity: humidityAm,
                 precipitation: precipitationAm,
                 wind: windAm,
+                currentWindDirection
             },
             apresMidi: {
                 temp: tempPm,
@@ -125,12 +130,14 @@ export function parseData(data) {
             currentTemperature,
             currentPrecipitation,
             currentHumidity,
-            currentWeather
+            currentWeather,
+            currentWind
         },
 
         daily: {
             sunset,
             sunrise,
+            uv,
             tempMini,
             tempMaxi,
             arrayTempDaily,

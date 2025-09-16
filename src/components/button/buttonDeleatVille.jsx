@@ -2,7 +2,7 @@ export function ButtonDeleteVille({ onClick }) {
 
     return <button
         onClick={onClick}
-        className="flex items-center bg-red-500 hover:bg-red-600 px-4 border rounded-full cursor-pointer"
+        className="flex items-center bg-red-400 hover:bg-red-500 px-4 border rounded-full cursor-pointer"
         title="Supprimer de vos favoris"
     >
 Supprimer

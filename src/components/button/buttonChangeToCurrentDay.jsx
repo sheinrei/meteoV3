@@ -6,7 +6,7 @@ export function ButtonChangeToCurrentDay(ville) {
 
     return <button
         onClick={()=> setFrame(ville.ville , "current")}
-        className="border bg-sky-500 hover:bg-sky-600 rounded-full cursor-pointer px-2"
+        className="border bg-sky-400 hover:bg-sky-500 rounded-full cursor-pointer px-2"
     >
         Retour
 

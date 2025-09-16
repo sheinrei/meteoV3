@@ -3,7 +3,6 @@ import { descriptionMeteo } from "./../../function"
 
 export function CarousselHourly({ data, arrayHourly, ville, splited }) {
 
-    console.log(arrayHourly)
     const blocsHours = arrayHourly;
     const arrayHumidity = data.daily.arrayHumidityDaily
     const arrayPrecipitation = data.daily.arrayPrecipitationDaily
@@ -50,7 +49,7 @@ export function CarousselHourly({ data, arrayHourly, ville, splited }) {
 
 
     return (
-        <div id={`dayly-${ville}`} className="flex gap-4 items-center justify-center">
+        <div id={`dayly-${ville}`} className="flex gap-2 items-center justify-center">
             <button
                 className="btn btn-circle"
                 onClick={prev}
@@ -60,12 +59,12 @@ export function CarousselHourly({ data, arrayHourly, ville, splited }) {
             </button>
 
             <div className="carousel-container overflow-hidden">
-                <div className={`flex px-2 py-4 gap-8 transition-all duration-500 ease-out ${isAnimating ? (direction === 'next' ? 'animate-slide-next' : 'animate-slide-prev') : ''
+                <div className={`flex px-2 py-4 gap-4 transition-all duration-500 ease-out ${isAnimating ? (direction === 'next' ? 'animate-slide-next' : 'animate-slide-prev') : ''
                     }`}>
                     {blocsHours[index].map((e, i) => (
                         <div
                             key={`${index}-${i}`}
-                            className={`flex border flex-col px-5 py-2 bg-sky-200 rounded-2xl items-center transition-all duration-300 hover:scale-105 hover:shadow-lg ${isAnimating ? 'animate-fade-in' : ''
+                            className={`flex border flex-col px-2 py-2 bg-sky-200 rounded-2xl items-center transition-all duration-300 hover:scale-105 hover:shadow-lg ${isAnimating ? 'animate-fade-in' : ''
                                 }`}
                             style={{
                                 animationDelay: `${i * 100}ms`
@@ -74,7 +73,7 @@ export function CarousselHourly({ data, arrayHourly, ville, splited }) {
                             <p className="animate-fade-in">{index * splited + i}h00</p>
                             <img
                                 className="w-20 h-15 transition-transform duration-300 hover:scale-110"
-                                src={"./../" + descriptionMeteo(arrayWeather[index * splited + i])}
+                                src={descriptionMeteo(arrayWeather[index * splited + i])}
                                 alt="image de la meteo"
                             />
                             <div className="flex flex-col">
