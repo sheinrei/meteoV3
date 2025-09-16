@@ -8,7 +8,6 @@ import logBanner from "./logBanner.js"
 function App() {
 
   logBanner()
-
   const [listVille, setListVille] = useLocalStorage("ville", ["toulouse"]);
 
   const addVille = (newVille) => setListVille(prev => [newVille, ...prev]);
@@ -20,7 +19,7 @@ function App() {
 
 
 
-  return <div className='border flex flex-col items-center p-5 w-max gap-9 bg-stone-200'>
+  return <div className='border flex flex-col items-center p-3 w-max gap-9 bg-stone-200 '>
 
     < Geoloc onAddVille={addVille} />
 

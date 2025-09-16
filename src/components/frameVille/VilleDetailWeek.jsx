@@ -41,18 +41,18 @@ export function VilleDetailWeek({ ville, onRemoveVille, meteoData, loading }) {
 
     const currentDay = data[index]
 
-    return <div id={`weekly-${ville}`} className="flex flex-col py-6 px-5 gap-5 border rounded-xl w-full items-center relative bg-white">
+    return <div id={`weekly-${ville}`} className="flex flex-col py-6 px-4 gap-5 border rounded-xl w-full items-center relative bg-white">
         <h2>{meteoData.nameVille}</h2>
 
         <div id={`caroussel-day-${ville}`} className="items-center flex flex-col gap-4">
             <h2>{currentDay.day.currentDay}</h2>
             <div className="flex flex-col">
                 <div className="flex gap-4">
-                    <p className="border px-2 rounded-xl bg-sky-200 text-center">
-                        Levé du soleil <br/>{currentDay.day.sunrise[index]}</p>
+                    <p className="border px-2 rounded-xl bg-sky-200 text-center shadow-xl block">
+                        Levé du soleil <br />{currentDay.day.sunrise[index]}</p>
 
-                    <p className="border px-2 rounded-xl bg-sky-200 text-center">
-                        Couché du soleil <br/> {currentDay.day.sunset[index]}</p>
+                    <p className="border px-2 rounded-xl bg-sky-200 text-center shadow-xl block">
+                        Couché du soleil <br /> {currentDay.day.sunset[index]}</p>
                 </div>
             </div>
 
@@ -66,16 +66,16 @@ export function VilleDetailWeek({ ville, onRemoveVille, meteoData, loading }) {
                         <img className="w-20 h-15" src={descriptionMeteo(currentDay.matin.weather)} alt="icone de la meteo " />
 
                         <p className="flex animate-fade-in " style={{ animationDelay: `${0 * 100 + 400}ms` }}><img width="24" height="24" src="https://img.icons8.com/ultraviolet/24/temperature.png" alt="temperature" />
-                            : {currentDay.matin.temp}°C</p>
+                            {currentDay.matin.temp}°C</p>
 
                         <p className="flex animate-fade-in " style={{ animationDelay: `${1 * 100 + 400}ms` }}><img width="24" height="24" src="https://img.icons8.com/color/24/blur.png" alt="blur" />
-                            : {currentDay.matin.humidity.toFixed(1)}%</p>
+                            {currentDay.matin.humidity.toFixed(1)}%</p>
 
                         <p className="flex animate-fade-in " style={{ animationDelay: `${2 * 100 + 400}ms` }}><img width="24" height="24" src="https://img.icons8.com/ultraviolet/40/hygrometer.png" alt="hygrometer" />
-                            : {currentDay.matin.precipitation}mm</p>
+                            {currentDay.matin.precipitation}mm</p>
 
                         <p className="flex animate-fade-in " style={{ animationDelay: `${3 * 100 + 400}ms` }}><img width="24" height="24" src="https://img.icons8.com/color/24/wind.png" alt="wind" />
-                            : {currentDay.matin.wind.toFixed(1)}km/h</p>
+                            {currentDay.matin.wind.toFixed(1)}km/h</p>
                     </div>
                 </div>
 
@@ -85,16 +85,16 @@ export function VilleDetailWeek({ ville, onRemoveVille, meteoData, loading }) {
                     <div className="px-2 py-2">
                         <img className="w-20 h-15" src={descriptionMeteo(currentDay.apresMidi.weather)} alt="icone de la meteo " />
                         <p className="flex animate-fade-in " style={{ animationDelay: `${0 * 100 + 400}ms` }}><img width="24" height="24" src="https://img.icons8.com/ultraviolet/24/temperature.png" alt="temperature" />
-                            : {currentDay.apresMidi.temp}°C</p>
+                            {currentDay.apresMidi.temp}°C</p>
 
                         <p className="flex animate-fade-in " style={{ animationDelay: `${1 * 100 + 400}ms` }}><img width="24" height="24" src="https://img.icons8.com/color/24/blur.png" alt="blur" />
-                            : {currentDay.apresMidi.humidity.toFixed(1)}%</p>
+                            {currentDay.apresMidi.humidity.toFixed(1)}%</p>
 
                         <p className="flex animate-fade-in " style={{ animationDelay: `${2 * 100 + 400}ms` }}><img width="24" height="24" src="https://img.icons8.com/ultraviolet/40/hygrometer.png" alt="hygrometer" />
-                            : {currentDay.apresMidi.precipitation}mm</p>
+                            {currentDay.apresMidi.precipitation}mm</p>
 
                         <p className="flex animate-fade-in " style={{ animationDelay: `${3 * 100 + 400}ms` }}><img width="24" height="24" src="https://img.icons8.com/color/24/wind.png" alt="wind" />
-                            : {currentDay.apresMidi.wind.toFixed(1)}km/h</p>
+                            {currentDay.apresMidi.wind.toFixed(1)}km/h</p>
                     </div>
                 </div>
 

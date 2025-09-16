@@ -7,8 +7,8 @@ import { parseData } from "./../../parseData"
 
 export function VilleCurrentData({ ville, onRemoveVille, meteoData }) {
 
-    const styleDetailData = "flex h-full "
-    const styleSun = "border rounded-xl px-4 bg-sky-200 text-center"
+    const styleDetailData = "flex h-full"
+    const styleSun = "border rounded-xl px-4 bg-sky-200 text-center shadow-xl block"
     const villeData = parseData(meteoData);
 
     //On attends d'avoir la data avant d'afficher
@@ -21,7 +21,7 @@ export function VilleCurrentData({ ville, onRemoveVille, meteoData }) {
 
 
     return <div key={villeData.nameVille}
-        className="flex flex-col py-10 px-5 gap-7 border w-full items-center rounded-xl bg-white">
+        className="flex flex-col py-10 px-4 gap-7 border w-full items-center rounded-xl bg-white">
 
 
         <h2 className="">{villeData.nameVille}</h2>
@@ -32,7 +32,7 @@ export function VilleCurrentData({ ville, onRemoveVille, meteoData }) {
         </div>
 
 
-        <div className="flex flex-col gap-5 justify-center ">
+        <div className="flex flex-col gap-5 justify-center">
 
             <div className="border rounded-xl bg-sky-200 p-2 animate-fade-in">
 
@@ -58,7 +58,7 @@ export function VilleCurrentData({ ville, onRemoveVille, meteoData }) {
 
 
 
-            <div className="border bg-green-50">
+            <div className="border bg-green-50 rounded-xl overflow-hidden w-full max-w-md mx-auto">
                 <OSMMap lat={villeData.coord[0]} lng={villeData.coord[1]} />
             </div>
         </div>

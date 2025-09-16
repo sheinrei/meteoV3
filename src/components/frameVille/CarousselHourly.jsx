@@ -78,16 +78,16 @@ export function CarousselHourly({ data, arrayHourly, ville, splited }) {
                             />
                             <div className="flex flex-col">
                                 <p className="animate-fade-in flex" style={{ animationDelay: `${i * 100 + 100}ms` }}>
-                                    <img width="24" height="24" src="https://img.icons8.com/ultraviolet/24/temperature.png" alt="temperature" /> : {e}°C
+                                    <img width="24" height="24" src="https://img.icons8.com/ultraviolet/24/temperature.png" alt="temperature" /> {e}°C
                                 </p>
                                 <p className="animate-fade-in flex" style={{ animationDelay: `${i * 100 + 200}ms` }}>
-                                    <img width="24" height="24" src="https://img.icons8.com/color/24/blur.png" alt="blur" /> : {arrayHumidity[index * splited + i]}%
+                                    <img width="24" height="24" src="https://img.icons8.com/color/24/blur.png" alt="blur" /> {arrayHumidity[index * splited + i]}%
                                 </p>
                                 <p className="animate-fade-in flex" style={{ animationDelay: `${i * 100 + 300}ms` }}>
-                                    <img width="24" height="24" src="https://img.icons8.com/ultraviolet/40/hygrometer.png" alt="hygrometer" /> : {arrayPrecipitation[index * splited + i]}mm
+                                    <img width="24" height="24" src="https://img.icons8.com/ultraviolet/40/hygrometer.png" alt="hygrometer" /> {arrayPrecipitation[index * splited + i]}mm
                                 </p>
                                 <p className="animate-fade-in flex" style={{ animationDelay: `${i * 100 + 400}ms` }}>
-                                    <img width="24" height="24" src="https://img.icons8.com/color/24/wind.png" alt="wind" /> : {arrayWind[index * 4 + i]}km/h
+                                    <img width="24" height="24" src="https://img.icons8.com/color/24/wind.png" alt="wind" /> {arrayWind[index * 4 + i]}km/h
                                 </p>
                             </div>
                         </div>

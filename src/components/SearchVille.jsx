@@ -20,7 +20,7 @@ export default function SearchVille({ onAddVille }) {
     const clientWidth = window.innerWidth
     let width;
     if (clientWidth <= 764) {
-        width = "130"
+        width = "120"
     } else if (clientWidth > 764 && clientWidth < 1024) {
         width = "150"
     } else {
@@ -34,7 +34,7 @@ export default function SearchVille({ onAddVille }) {
                 type="text"
                 value={value}
                 onChange={handleChange}
-                className="focus:outline-none hover:bg-stone-100 cursor-pointer"
+                className="focus:outline-none"
                 placeholder="Chercher une ville ..."
             />
 

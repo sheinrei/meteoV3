@@ -20,7 +20,7 @@ export default function Geoloc({ onAddVille }) {
                 element.style.border = "none"
                 element.style.padding = "0px"
             } else {
-                height -= 4; 
+                height -= 4;
                 element.style.height = height + "px";
             }
         }, 42)
@@ -68,9 +68,14 @@ export default function Geoloc({ onAddVille }) {
 
 
 
+
+
     if (validator === false && !decline) {
         return (
-            <div id="frame-geoloc" className="border w-150 bg-white rounded-xl flex flex-col gap-2 p-2 overflow-hidden">
+            <div
+                id="frame-geoloc"
+                className="border w-120 bg-white rounded-xl flex flex-col gap-2 p-2 overflow-hidden"
+            >
                 <p>
                     Pour permettre à meteoV3 d’accéder à votre localisation et d’afficher votre ville actuelle, acceptez simplement en &nbsp;
                     <button className="text-blue-500 hover:text-blue-700 underline cursor-pointer" onClick={() => setValidator(true)}>cliquant-ici</button>

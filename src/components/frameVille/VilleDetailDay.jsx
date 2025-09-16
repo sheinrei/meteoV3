@@ -47,15 +47,15 @@ export function VilleDetailDay({ ville, onRemoveVille, meteoData, loading }) {
 
     const blocsHours = chunkArray(villeData.daily.arrayTempDaily, split);
 
-    return <div key={villeData.nameVille} className="flex flex-col py-10 px-5 gap-3 border rounded-xl w-full items-center relative bg-white">
+    return <div key={villeData.nameVille} className="flex flex-col py-10 px-4 gap-3 border rounded-xl w-full items-center relative bg-white">
 
         <h2>{villeData.nameVille}</h2>
 
         <div className="flex gap-16">
-            <p className="border px-2 rounded-xl bg-sky-200 text-center">
+            <p className="border px-2 rounded-xl bg-sky-200 text-center shadow-xl block">
                 Levé du jour <br/> {villeData.daily.sunrise}</p>
-                
-            <p className="border px-2 rounded-xl bg-sky-200 text-center">
+
+            <p className="border px-2 rounded-xl bg-sky-200 text-center shadow-xl block">
                 Couché du soleil <br/> {villeData.daily.sunset}</p>
         </div>
 

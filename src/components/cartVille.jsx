@@ -1,3 +1,4 @@
+
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import L from "leaflet";
 import "../index.css";
@@ -13,28 +14,22 @@ L.Icon.Default.mergeOptions({
   shadowUrl,
 });
 
-
 export default function OSMMap({ lat = 43.6045, lng = 1.444 }) {
 
-  const clientWidth = window.innerWidth;
-  let dim;
-
-  if (clientWidth < 768) {
-    dim = "w-80";
-  } else if (clientWidth < 1024) {
-    dim = "w-100";
-  } else {
-    dim = "w-140";
-  }
-
-
   return (
-    <MapContainer center={[lat, lng]} zoom={6} className={`${dim} h-80 z-0`} scrollWheelZoom={false}>
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      <Marker position={[lat, lng]} />
-    </MapContainer>
+    <div className="w-full bg-white">
+      <MapContainer
+        center={[lat, lng]}
+        zoom={6}
+        className="h-64 w-full"
+        scrollWheelZoom={false}
+      >
+        <TileLayer
+          attribution='&copy; OpenStreetMap'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Marker position={[lat, lng]} />
+      </MapContainer>
+    </div>
   );
 }
