@@ -91,6 +91,7 @@ h2 {
 @media(max-width : 768px) {
   body {
     font-size: 0.9em;
+    zoom:0.85
   }
 
   h2 {

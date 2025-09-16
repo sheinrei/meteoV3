@@ -7,7 +7,7 @@ import { parseData } from "./../../parseData"
 
 export function VilleCurrentData({ ville, onRemoveVille, meteoData }) {
 
-    const styleDetailData = "flex h-full"
+    const styleDetailData = "flex"
     const styleSun = "border rounded-xl px-4 bg-sky-200 text-center shadow-xl block"
     const villeData = parseData(meteoData);
 

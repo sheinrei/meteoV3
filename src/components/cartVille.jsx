@@ -17,7 +17,7 @@ L.Icon.Default.mergeOptions({
 export default function OSMMap({ lat = 43.6045, lng = 1.444 }) {
 
   return (
-    <div className="w-full bg-white">
+    <div className="bg-white">
       <MapContainer
         center={[lat, lng]}
         zoom={6}
