@@ -58,7 +58,7 @@ export function VilleDetailWeek({ ville, onRemoveVille, meteoData, loading }) {
 
             <div className="flex gap-4 py-2 items-center">
 
-                <button className="btn btn-circle" onClick={prev}>❮</button>
+                <button className="btn btn-circle cursor-pointer" onClick={prev}>❮</button>
 
                 <div className={styleFrame}>
                     <p>Matin</p>
@@ -101,7 +101,7 @@ export function VilleDetailWeek({ ville, onRemoveVille, meteoData, loading }) {
 
 
 
-                <button className="btn btn-circle" onClick={next}>❯</button>
+                <button className="btn btn-circle cursor-pointer" onClick={next}>❯</button>
             </div>
         </div>
 

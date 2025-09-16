@@ -51,7 +51,7 @@ export function CarousselHourly({ data, arrayHourly, ville, splited }) {
     return (
         <div id={`dayly-${ville}`} className="flex gap-2 items-center justify-center">
             <button
-                className="btn btn-circle"
+                className="btn btn-circle cursor-pointer"
                 onClick={prev}
                 disabled={isAnimating}
             >
@@ -96,7 +96,7 @@ export function CarousselHourly({ data, arrayHourly, ville, splited }) {
             </div>
 
             <button
-                className="btn btn-circle"
+                className="btn btn-circle cursor-pointer"
                 onClick={next}
                 disabled={isAnimating}
             >

@@ -7,7 +7,7 @@ import { parseData } from "./../../parseData"
 
 export function VilleCurrentData({ ville, onRemoveVille, meteoData }) {
 
-    const styleDetailData = "flex"
+    const styleDetailData = "flex border"
     const styleSun = "border rounded-xl px-4 bg-sky-200 text-center shadow-xl block"
     const villeData = parseData(meteoData);
 
@@ -42,16 +42,16 @@ export function VilleCurrentData({ ville, onRemoveVille, meteoData }) {
                     <p className={styleDetailData+ "animate-fade-in" } style={{ animationDelay: `${0 * 100 + 400}ms` }}><img className="w-20 h-16" src={villeData.current.currentWeather} /></p>
 
                     <p className={styleDetailData+ "animate-fade-in" } style={{ animationDelay: `${1 * 100 + 400}ms` }}><img width="40" src="https://img.icons8.com/ultraviolet/24/temperature.png" alt="temperature" />
-                        : {villeData.current.currentTemperature}°C</p>
+                         {villeData.current.currentTemperature}°C</p>
 
                     <p className={styleDetailData+ "animate-fade-in" } style={{ animationDelay: `${2 * 100 + 400}ms` }}><img width="40" src="https://img.icons8.com/color/24/blur.png" alt="blur" />
-                        : {villeData.current.currentHumidity}%</p>
+                         {villeData.current.currentHumidity}%</p>
 
                     <p className={styleDetailData+ "animate-fade-in" } style={{ animationDelay: `${3 * 100 + 400}ms` }}> <img width="40" height="40" src="https://img.icons8.com/color/24/wind.png" alt="wind" />
-                        : {villeData.current.currentWind}Km/h</p>
+                         {villeData.current.currentWind}Km/h</p>
 
                     <p className={styleDetailData+ "animate-fade-in" } style={{ animationDelay: `${4 * 100 + 400}ms` }}><img width="40" src="https://img.icons8.com/ultraviolet/40/hygrometer.png" alt="hygrometer" />
-                        : {villeData.current.currentPrecipitation}mm</p>
+                         {villeData.current.currentPrecipitation}mm</p>
                 </div>
 
             </div>
